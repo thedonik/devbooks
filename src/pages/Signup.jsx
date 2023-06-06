@@ -10,7 +10,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../utils/axios";
 
-import "./signup.css";
+import "./signup.scss";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{4,24}$/;
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@.]).{4,24}$/;
@@ -120,8 +120,6 @@ export default function Signup() {
       console.log(response?.token);
       console.log(JSON.stringify(response));
       setSuccess(true);
-      //clear state and controlled inputs
-      //need value attrib on inputs for this
       setUserfirst("");
       setUserlast("");
       setTel("");
@@ -131,6 +129,7 @@ export default function Signup() {
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
+        navigate("/books")
       } else if (err.response?.status === 409) {
         setErrMsg("Username Taken");
       } else {

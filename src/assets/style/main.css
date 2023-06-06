@@ -12,6 +12,8 @@ html {
 
 body {
   font-family: 'Arima', cursive;
+  background: #191919;
+  color: #fff;
   display: flex;
   flex-direction: column;
   height: 100%;
